@@ -107,7 +107,7 @@ jobs:
 
       - uses: actions/checkout@v2
 
-      - name: Build and push ${{ env.SLUG }}:${{ env.TAG }}
+      - name: Build and push ${{ env.DISTRO }}:${{ env.TAG }}
         shell: pwsh
         env:
           RUNNER: root
@@ -126,7 +126,7 @@ jobs:
                 'docker.io/${{ env.SLUG }}:${{ env.TAG }}'
               )
 
-      - name: Build and push ${{ env.SLUG }}:${{ env.TAG }}
+      - name: Build and push ${{ env.DISTRO }}:${{ env.TAG }}
         shell: pwsh
         env:
           RUNNER: runner
@@ -163,7 +163,7 @@ jobs:
           cd act/
           go test ./...
 
-      - name: Build and push ${{ env.SLUG }}:${{ env.TAG }}
+      - name: Build and push ${{ env.DISTRO }}:${{ env.TAG }}
         if: ${{ ( github.event_name != 'pull_request' && github.event_name != 'push' && !env.ACT ) }}
         shell: pwsh
         env:
@@ -182,7 +182,7 @@ jobs:
                 'docker.io/${{ env.SLUG }}:${{ env.TAG }}'
               )
 
-      - name: Build and push ${{ env.SLUG }}:${{ env.TAG }}
+      - name: Build and push ${{ env.DISTRO }}:${{ env.TAG }}
         if: ${{ ( github.event_name != 'pull_request' && github.event_name != 'push' && !env.ACT ) }}
         shell: pwsh
         env:
@@ -221,19 +221,13 @@ jobs:
         PLATFORMS:
           - 'linux/amd64,linux/arm64,linux/armhf'
         TYPE:
-          - rust
           - js
           - pwsh
           - custom
         include:
-          - TYPE: rust
-            PLATFORMS: 'linux/amd64,linux/arm64'
           - TAG: 18.04
             PLATFORMS: linux/amd64
         exclude:
-          # fails due to qemu bug
-          - TYPE: rust
-            PLATFORMS: 'linux/amd64,linux/arm64,linux/armhf'
           # no arm bins for docker CLIs
           - TAG: 18.04
             PLATFORMS: 'linux/amd64,linux/arm64,linux/armhf'
@@ -294,7 +288,7 @@ jobs:
 
       - uses: actions/checkout@v2
 
-      - name: Build and push ${{ env.SLUG }}:${{ env.TAG }}
+      - name: Build and push ${{ env.DISTRO }}:${{ env.TAG }}
         shell: pwsh
         env:
           TAG: ${{ matrix.TYPE }}-${{ matrix.TAG }}-${{ env.PART_TAG }}
@@ -310,7 +304,7 @@ jobs:
                 'docker.io/${{ env.SLUG }}:${{ env.TAG }}'
               )
 
-      - name: Build and push ${{ env.SLUG }}:${{ env.TAG }}
+      - name: Build and push ${{ env.DISTRO }}:${{ env.TAG }}
         shell: pwsh
         if: ${{ ( github.event_name != 'pull_request' && github.event_name != 'push' && !env.ACT ) }}
         env:
