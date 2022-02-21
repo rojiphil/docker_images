@@ -17,6 +17,7 @@ on:
 
 env:
   SLUG: rojiphil/ubuntu
+  REPNAME: rojiphil/ubuntu
   DISTRO: ubuntu
   NODE: '16'
   BUILD_REF: ${{ github.sha }}
@@ -88,6 +89,7 @@ jobs:
 
       - uses: actions/checkout@v2
 
+      - name: Build and push ${{ env.REPNAME }}:${{ env.TAG }}
         run: ./build.sh
         env:
           RUNNER: root
