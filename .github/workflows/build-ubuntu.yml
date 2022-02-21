@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 env:
-  SLUG: rojiphil
+  SLUG: ${{ github.repository_owner }}/ubuntu
   DISTRO: ubuntu
   NODE: '16'
   BUILD_REF: ${{ github.sha }}
