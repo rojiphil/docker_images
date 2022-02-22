@@ -5,7 +5,7 @@
 ################################################################################
 
 # Source the helpers for use with the script
-source $HELPER_SCRIPTS/install.sh
+source /imagegeneration/helpers/install.sh
 
 # Install default Node.js
 defaultVersion=$(get_toolset_value '.node.default')
@@ -21,7 +21,7 @@ ln -s /usr/local/bin/vercel /usr/local/bin/now
 
 # fix global modules installation as regular user
 # related issue https://github.com/actions/virtual-environments/issues/3727
-sudo chmod -R 777 /usr/local/lib/node_modules 
+sudo chmod -R 777 /usr/local/lib/node_modules
 sudo chmod -R 777 /usr/local/bin
 
 rm -rf ~/n

@@ -4,9 +4,9 @@
 ##  Desc:  Installs Java and related tooling (Ant, Gradle, Maven)
 ################################################################################
 
-source $HELPER_SCRIPTS/install.sh
-source $HELPER_SCRIPTS/os.sh
-source $HELPER_SCRIPTS/etc-environment.sh
+source /imagegeneration/helpers/install.sh
+source /imagegeneration/helpers/os.sh
+source /imagegeneration/helpers/etc-environment.sh
 
 createJavaEnvironmentalVariable() {
     local JAVA_VERSION=$1
