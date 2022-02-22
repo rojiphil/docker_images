@@ -136,7 +136,7 @@ jobs:
       matrix:
         include:
           - TAG: 20.04
-            TYPE: js
+            TYPE: pm
             PLATFORMS: linux/amd64,linux/arm64
     env:
       PLATFORMS: ${{ matrix.PLATFORMS }}
