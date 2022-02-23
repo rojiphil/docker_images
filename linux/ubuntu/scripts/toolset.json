@@ -74,11 +74,11 @@
         "vendors": [
             {
                 "name": "Temurin-Hotspot",
-                "versions": [ "8", "11", "17" ]
+                "versions": ["11", "17" ]
             },
             {
                 "name": "Adopt",
-                "versions": [ "8", "11" ]
+                "versions": ["11" ]
             }
         ],
         "maven": "3.8.4"
