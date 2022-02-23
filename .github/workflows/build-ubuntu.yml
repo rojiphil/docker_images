@@ -35,7 +35,7 @@ jobs:
       matrix:
         include:
           - TAG: 20.04
-            PLATFORMS: linux/amd64,linux/arm64
+            PLATFORMS: linux/amd64
     env:
       PLATFORMS: ${{ matrix.PLATFORMS }}
     steps:
@@ -137,7 +137,7 @@ jobs:
         include:
           - TAG: 20.04
             TYPE: pm
-            PLATFORMS: linux/amd64,linux/arm64
+            PLATFORMS: linux/amd64
     env:
       PLATFORMS: ${{ matrix.PLATFORMS }}
       BUILD_TAG: ${{ matrix.TYPE }}-${{ matrix.TAG }}
